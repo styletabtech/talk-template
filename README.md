@@ -1,106 +1,165 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# Talk Template
+# Intro to PHP
 
-Use this template to structure your READMEs for talks. Remove text from this
-section, or use it to frame the talk you are giving. Good framing answers the
-question "Why am I learning this?".
-
-Be sure to include a recent [`LICENSE`](LICENSE) and Markdown linter
-configuration ([`.remarkrc`](.remarkrc)). Also, include an appropriate
-`.gitignore`; these are usually found in specific technology templates, for
-example [js-template](https://www.github.com/ga-wdi-boston/js-template).
-
-## Prerequisites
-
--   Topics with which developers should be familiar with.
--   Prerequisites are "just-in-time", so if I have a prerequisite that mentions
-    Sass, I would **not** need to include CSS as a prerequisite.
--   [Links to previous materials](https://www.github.com/ga-wdi-boston/example)
-    are often useful.
-
-## Objectives
-
-By the end of this, developers should be able to:
-
--   Write objectives that focus on demonstrating knowledge.
--   Write learning objectives that begin with an [imperative
-    verb](https://en.wikipedia.org/wiki/Imperative_mood).
--   Avoid objectives that start with "Use" or "Understand".
--   Rewrite objecives that begin with "Use" by inverting sentence structure.
--   End each objective with a period.
--   Write objectives on the whiteboard so they can be referenced during a talk.
 
 ## Preparation
 
-1.  Fork and clone this repository.
- [FAQ](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone)
-1.  Create a new branch, `training`, for your work.
-1.  Checkout to the `training` branch.
-1.  Install dependencies with `npm install`.
+1.  Fork this repository if you'd like.
 
-Better preparation instructions may be found as
-[snippets](https://github.com/ga-wdi-boston/instructors/tree/master/snippets).
 
-It's a good idea to have students do these steps while you're writing objectives
-on the whiteboard.
+## What is PHP?
 
-## Leading Topic Heading
+PHP is a widely-used open source general-purpose scripting language that is especially suited for server-side web development and can be embedded into HTML.
 
-Here is where the talk begins. If you have not already included framing above,
-it's appropriate to put it here. Link to introductory articles or documentation.
-Motivate the next section.
+It was created in 1994 by
+Rasmus Lerdorf. It’s original use was for tracking visits to his online resume and at the time PHP stood for Personal Homepage. Today, PHP stands for PHP: Hypertext Preprocessor and does way more than tracking visits on Rasmus's personal home page.
 
-Demos, exercises, and labs are labelled as such, followed by a colon and a
-description of the activity starting with an [imperative
-verb](https://en.wikipedia.org/wiki/Imperative_mood).
+PHP can do a variety of things:
+- evaluate form data sent from a browser
+- build custom web content to serve the browser
+- talk to a database
+- send and receive cookies
 
-## Demo: Write a Demo
+```
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
 
-Demos are demonstrations, and developers should give their full attention to
-them. It's a great time for them to take notes about important concepts before
-applying them in an exercise.
+        <?php
+            echo "Hi, I'm a PHP script!";
+        ?>
 
-Demos correspond to the "I do" portion of scaffolding from consultant training.
+    </body>
+</html>
+```
+- PHP-enabled web pages are treated just like regular HTML pages and you can create and edit them the same way you normally create regular HTML pages.
 
-## Code-Along: Write an Code-Along
+- What distinguishes PHP from something like client-side JavaScript is that the code is executed on the server, generating HTML which is then sent to the client. The client would receive the results of running that script, but would not know what the underlying code was. You can even configure your web server to process all your HTML files with PHP, and then there's really no way that users can tell what you have up your sleeve.
 
-During the code-along, developers should apply concepts covered in the previous
-demo, led by the consultant.
-This is their first chance to generalize concepts introduced. Exercises should
-be very focused, and flow natural into a lab.
 
-Exercises correspond to the "We do" portion of scaffolding from consultant
-training.
+## Syntax
 
-## Lab: Write a Lab
+- PHP code is always starts with a tag`<?php` and end with `?>`
+- PHP statements end with a semi-colon.
+- Blocks are contained within curly braces.
+- `echo` is used to print stuff, similar to return or puts
 
-During labs, developers get to demonstrate their understanding of concepts from
-demos and applied knowledge from exercises. Labs are an opportunity for
-developers to build confidence, and also serve as a diagnostic tool for
-consultants to evaluate developer understanding.
+## Variables
+- `$newVariable` The dollar sign is used to declare a new variable, just like let or const.
+- `$newVariable = foo` You assign values to variables using the assignment operator, equal sign.
+- PHP variables don’t have to be declared before they are used. Setting a variable for the first time is simultaneously declaring that variable.
+- Variable names are typically used in camelCase but you may also see snake_case.
 
-Labs should be timed explicitly using a timer. When estimating the time it will
-take to complete a lab, it is better to overestimate. During labs, consultants
-should circle the room and interact with developers, noting patterns and
-prompting with hints on how to complete the lab. If developers end early, a
-consultant may stop the lab timer. If developers do not finish in time, a
-consultant may give more time at her discretion based on current talk pace, the
-current estimate for the talk, and the importance of completing the lab while
-consultant support is available.
+## Concatenation / String Interpolation
+- For concatenation, the `.` is used, similar to how the `+` is used in Javascript.
+- For string interpolation `“”` and `‘’` will print different things. You'll want to use `""` for string interpolation.
+- filename should end in .php
 
-Labs correspond to the "You do" portion of scaffolding from consultant
-training.
+## Data Types
+
+PHP has 8 data types
+
+- Strings
+- Integers
+- Floating point numbers
+- Booleans
+- Arrays
+- Objects
+- Resource
+- NULL
+
+- The falsy values of PHP are: FALSE NULL 0 0.0 "0" `''` `[]`
+
+In PHP you don’t have to explicitly set a variable’s data type. For example, PHP is smart enough to guess that you want this to be an integer:
+`$myNum = 25;`
+
+PHP is also smart enough to know that if you try to perform operations on different variables with different data types it will still perform the operation. Example:
+```
+"10" * 2  # this will output to 20
+```
+
+- To get the datatype of something you can use 'gettype();' this is bulit into PHP.
+
+- Type casting. If you’d like to explicitly set a variable’s data type, you can do so with type casting. This is done by prefixing a value with your desired type in parens.
+
+```
+$apples = (int)10.6339;  # Cast to an Integer
+echo gettype($apples) # Outputs "integer"
+echo $apples;         # Outputs 10
+```
+
+# Flow Control
+## Conditionals
+
+If statements are just as you know them in JavaScript.
+
+```
+<?php
+  $name = "Edgar";
+
+  if ($name == "Simon") {
+    print "I know you!";
+  }
+  else {
+    print "Who are you?";
+  }
+?>
+```
+##Loops
+Same with loops!
+```
+<?php
+
+for ($i = 1; $i <= 10; $i++) {
+    echo $i;
+}
+```
+## Functions
+
+- Function names typically use camel case, and do not need a dollar sign.
+- However, their arguements have the same syntax as variables and need a dollar sign.
+- Any valid PHP code may appear inside a function, even other functions and class definitions.
+- Functions need not be defined before they are referenced, except when a function is conditionally defined
+- When a function is defined in a conditional manner its definition must be processed prior to being called.
+```
+<?php
+function foo($arg_1, $arg_2, /* ..., */ $arg_n)
+{
+    echo "Example function.\n";
+    return $retval;
+}
+?>
+```
+
+
+## Application
+- PHP can be used on all major operating systems
+- With PHP, you have the freedom of choosing an operating system and a web server. Furthermore, you also have the choice of using procedural programming or object oriented programming (OOP), or a mixture of them both.
+- With PHP you are not limited to output HTML. PHP's abilities includes outputting images and PDF files generated on the fly.
+- One of the strongest and most significant features in PHP is its support for a wide range of databases.
+
+
+## Laravel
+
+- One of the most popular frameworks to use with PHP
+- It's free and open-source.
+- It follows the MVC architectural pattern
+- Laravel is to PHP, as Rails is to Ruby
+- LAMP stack - Laravel, Apache, MySql, PHP
+- [Laravel documentation](https://laravel.com/docs/5.3)
 
 ## Additional Resources
 
--   Any useful links should be included in the talk material where the link is
-    first referenced.
--   Additional links for further study or exploration are appropriate in this
-    section.
--   Links to important parts of documentation not covered during the talk, or
-    tools tangentially used but not part of the focus of the talk, are also
-    appropriate.
+- [Codecademy's PHP course](https://www.codecademy.com/learn/php)
+-   [PHP documentation](http://www.php.net/manual/en/getting-started.php)
+- [Derek Banas's PHP YouTube tutorials](https://www.youtube.com/watch?v=l21g8dJmD7U&list=PL21E20F9A122DC853)
+-  [PHP the right way](http://www.phptherightway.com/)
+-   [History of PHP](http://php.net/manual/en/history.php.php)
+- [Taking PHP seriously](https://slack.engineering/taking-php-seriously-cf7a60065329#.fiqwmmrp8)
 
 ## [License](LICENSE)
 
